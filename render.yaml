@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: ridhofajar-video-to-pdf-backend
+    env: python
+    region: singapore
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: ALLOWED_ORIGINS
+        value: https://ridhofajar-convert-video-pdf.vercel.app,http://localhost:3000
+      - key: MAX_VIDEO_SIZE_MB
+        value: 500
+      - key: MAX_VIDEO_DURATION_MINUTES
+        value: 90
+      - key: JOB_RETENTION_HOURS
+        value: 6
+      - key: MAX_CONCURRENT_JOBS
+        value: 1
