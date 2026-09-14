@@ -1,3 +1,13 @@
+---
+title: RidhoFajar Video to PDF API
+emoji: 🎬
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # RidhoFajar Video to PDF Converter (Web Version)
 
 Aplikasi web modern, sederhana, dan ramah pengguna untuk mengonversi materi visual penting (papan tulis, slide presentasi, diagram alur, perhitungan, tutorial, dan dokumen) dari file video menjadi dokumen PDF berkualitas tinggi (A4 Lanskap) tanpa mengubah susunan materi asli dan tanpa manipulasi teks/angka.
