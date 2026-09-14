@@ -17,13 +17,14 @@ if errorlevel 1 (
     goto :on_error
 )
 
-REM 2. Tentukan virtual environment (gunakan .venv utama atau backend)
-set "VENV_PYTHON=..\.venv\Scripts\python.exe"
-if not exist "!VENV_PYTHON!" (
+REM 2. Tentukan virtual environment (cek root proyek, web convert, atau lokal)
+if exist "..\..\.venv\Scripts\python.exe" (
+    set "VENV_PYTHON=..\..\.venv\Scripts\python.exe"
+) else if exist "..\.venv\Scripts\python.exe" (
+    set "VENV_PYTHON=..\.venv\Scripts\python.exe"
+) else if exist ".venv\Scripts\python.exe" (
     set "VENV_PYTHON=.venv\Scripts\python.exe"
-)
-
-if not exist "!VENV_PYTHON!" (
+) else (
     echo [INFO] Menyiapkan virtual environment Python...
     python -m venv .venv
     .venv\Scripts\pip install -r requirements.txt
